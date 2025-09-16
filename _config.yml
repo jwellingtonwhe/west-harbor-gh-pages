@@ -6,7 +6,6 @@ url: "https://westharborequity.com"
 # Build settings
 markdown: kramdown
 highlighter: rouge
-permalink: pretty
 plugins:
   - jekyll-feed
   - jekyll-sitemap
