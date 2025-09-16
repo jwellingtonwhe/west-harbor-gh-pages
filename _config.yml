@@ -6,9 +6,13 @@ url: "https://westharborequity.com"
 # Build settings
 markdown: kramdown
 highlighter: rouge
+permalink: pretty
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+
+# GitHub Pages specific settings
+github: [metadata]
 
 # Exclude from processing
 exclude:
