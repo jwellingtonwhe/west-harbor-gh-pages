@@ -211,11 +211,18 @@ Test the site in multiple browsers:
 3. Select "Deploy from a branch" and choose `main` branch
 4. The site will be available at `https://yourusername.github.io/repository-name`
 
-### Custom Domain (Optional)
+### Custom Domain Setup
 
-1. Add a `CNAME` file to the root directory with your domain
-2. Configure DNS settings with your domain provider
-3. Update `_config.yml` with your custom URL
+1. **Add CNAME file**: A `CNAME` file has been created with `westharborequity.com`
+2. **Configure DNS**: Set up DNS records with your domain provider:
+   - Create a CNAME record pointing `www` to `yourusername.github.io`
+   - Create an A record pointing the apex domain to GitHub's IP addresses:
+     - `185.199.108.153`
+     - `185.199.109.153`
+     - `185.199.110.153`
+     - `185.199.111.153`
+3. **Update GitHub Pages settings**: In your repository settings, enable "Enforce HTTPS"
+4. **URL configuration**: The `_config.yml` has been configured with the custom domain URL
 
 ## Troubleshooting
 
@@ -270,6 +277,16 @@ source ~/.zshrc
 bundle exec jekyll clean
 bundle exec jekyll serve
 ```
+
+**404 errors on custom domain subpages**
+
+If your homepage loads but subpages like `/thesis/` return 404 errors:
+
+1. **Check CNAME file**: Ensure `CNAME` file exists with your domain name
+2. **Verify URL configuration**: Make sure `_config.yml` has the correct `url` setting
+3. **Use relative URLs**: Navigation links should use `{{ '/page/' | relative_url }}` format
+4. **DNS propagation**: Wait 24-48 hours for DNS changes to fully propagate
+5. **GitHub Pages settings**: Ensure custom domain is properly configured in repository settings
 
 ### Getting Help
 
